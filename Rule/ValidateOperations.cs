@@ -7,7 +7,7 @@ namespace CategorizeTrades.Rule
     public class ValidateOperations
     {
 
-        public int ValidateNumberOfPortifolio()
+        public int ValidateNumberOfPortfolio()
         {
             int number = 0;
             while (number <= 0)

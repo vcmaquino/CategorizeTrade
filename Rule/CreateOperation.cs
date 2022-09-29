@@ -16,7 +16,7 @@ namespace CategorizeTrades.Rule
         {
             Console.WriteLine("Creating the portfolio, follow with the data of how many portfolios and the reference date");
             var configuracao = new ConfiguracaoDto();
-            configuracao.NumberOfPortifolio = _validateOperations.ValidateNumberOfPortifolio();
+            configuracao.NumberOfPortifolio = _validateOperations.ValidateNumberOfPortfolio();
             configuracao.ReferenceDate = _validateOperations.ValidateReferenceDate();
             return configuracao;
         }
