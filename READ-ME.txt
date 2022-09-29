@@ -1,0 +1,20 @@
+﻿
+Question 2: A new category was created called PEP (politically exposed person). Also, a new bool property
+IsPoliticallyExposed was created in the ITrade interface. A trade shall be categorized as PEP if
+IsPoliticallyExposed is true. Describe in at most 1 paragraph what you must do in your design to account for this
+new category.
+
+RESPOSTA: Seria adicionado o PEP no enum EnumCategories, adicionado a propriedade no ITrade, e a validação seria feito dentro 
+da pasta Risks, com uma nova classe obedecendo o padrão de projeto utilizado.
+No caso, o chain of responsability, com o nome da classe PepRisk.cs, que faria a validação se IsPoliticalExposed is true ele retornaria o 
+o risk PEP. E também instanciaria na classe EvaluateRiskClient a PepRisk para execução após a instancia da classe Expired, colocando 
+o SetSuccessor do Expired como o PepRisk, e no PepRisk o  SetSuccessor ficaria com o HighRisk.
+
+Exemplo:
+Categories expired = new Expired();
+Categories pep = new PepRisk();
+Categories highRisk = new HighRisk();
+Categories mediumRisk = new MediumRisk();
+expired.SetSuccessor(pep);
+pep.SetSuccessor(highRisk);
+highRisk.SetSuccessor(mediumRisk);

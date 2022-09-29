@@ -1,10 +1,11 @@
 ﻿using CategorizeTrades.Enum;
+using CategorizeTrades.Interface;
 using System;
 using System.Globalization;
 
 namespace CategorizeTrades.Rule
 {
-    public class ValidateOperations
+    public class ValidateOperations : IValidateOperations
     {
 
         public int ValidateNumberOfPortfolio()

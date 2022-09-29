@@ -7,20 +7,20 @@ namespace CategorizeTrades.Rule
 {
     public class EvaluateRisk
     {
-        public List<EnumCategories> EvaluateRiskClient(List<NegotiationDto> negotiation, ConfiguracaoDto configuracao)
+        public List<EnumCategories> EvaluateRiskClient(List<Trade> tradeList, ConfiguracaoDto configuration)
         {
-            var categorias = new List<EnumCategories>();
+            var categories = new List<EnumCategories>();
             Categories expired = new Expired();
             Categories highRisk = new HighRisk();
             Categories mediumRisk = new MediumRisk();
             expired.SetSuccessor(highRisk);
             highRisk.SetSuccessor(mediumRisk);
 
-            foreach (var item in negotiation)
+            foreach (var item in tradeList)
             {
-                categorias.Add(expired.Categorize(item, configuracao));
+                categories.Add(expired.Categorize(item, configuration));
             }
-            return categorias;
+            return categories;
         }
     }
 }

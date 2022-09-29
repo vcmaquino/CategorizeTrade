@@ -6,13 +6,13 @@ namespace CategorizeTrades.Risks
 {
     public class HighRisk : Categories
     {
-        public override EnumCategories Categorize(NegotiationDto negotiation, ConfiguracaoDto configuracao)
+        public override EnumCategories Categorize(Trade trade , ConfiguracaoDto configuracao)
         {
             double valorClientPrivate = 1000000;
-            if (ClientSector.PRIVATE == negotiation.ClientSector && valorClientPrivate < negotiation.Value)
+            if (ClientSector.PRIVATE == trade.ClientSector && valorClientPrivate < trade.Value)
                 return EnumCategories.HIGHRISK;
             else
-                return successor.Categorize(negotiation, configuracao);
+                return successor.Categorize(trade, configuracao);
         }
     }
 }

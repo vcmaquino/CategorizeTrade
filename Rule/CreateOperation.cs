@@ -1,4 +1,5 @@
 ﻿using CategorizeTrades.DTO;
+using CategorizeTrades.Interface;
 using System;
 using System.Collections.Generic;
 
@@ -6,8 +7,8 @@ namespace CategorizeTrades.Rule
 {
     public class CreateOperation
     {
-        private readonly ValidateOperations _validateOperations;
-        public CreateOperation(ValidateOperations validateOperations)
+        private readonly IValidateOperations _validateOperations;
+        public CreateOperation(IValidateOperations validateOperations)
         {
             _validateOperations = validateOperations;
         }
@@ -21,23 +22,23 @@ namespace CategorizeTrades.Rule
             return configuracao;
         }
 
-        public List<NegotiationDto> CreateObjectNegotiation(ConfiguracaoDto configuracao)
+        public List<Trade> CreateObjectNegotiation(ConfiguracaoDto configuracao)
         {
-            var negotiationList = new List<NegotiationDto>();
+            var tradeList = new List<Trade>();
 
             Console.WriteLine("========================");
             for (int i = 0; i < configuracao.NumberOfPortifolio; i++)
             {
-                var negotiation = new NegotiationDto();
+                var trade = new Trade();
                 Console.WriteLine("Enter the value");
                 var valor = Console.ReadLine();
-                negotiation.ClientSector = _validateOperations.CompleteClientSector();
-                negotiation.NextPaymentDate = _validateOperations.ValidateReferenceDate();
-                negotiation.Value = _validateOperations.ValidateValor(valor);
-                negotiationList.Add(negotiation);
+                trade.ClientSector = _validateOperations.CompleteClientSector();
+                trade.NextPaymentDate = _validateOperations.ValidateReferenceDate();
+                trade.Value = _validateOperations.ValidateValor(valor);
+                tradeList.Add(trade);
                 Console.WriteLine("========================");
             }
-            return negotiationList;
+            return tradeList;
         }
 
     }
