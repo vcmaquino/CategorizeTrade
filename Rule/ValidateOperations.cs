@@ -49,8 +49,8 @@ namespace CategorizeTrades.Rule
 
         public ClientSector CompleteClientSector()
         {
-            ClientSector clientSector = ClientSector.INVALIDO;
-            while (clientSector == ClientSector.INVALIDO)
+            ClientSector clientSector = ClientSector.Invalid;
+            while (clientSector == ClientSector.Invalid)
             {
                 Console.WriteLine("Enter client sector 1:PRIVATE E 2:PUBLIC");
                 var sector = Console.ReadLine();
@@ -63,13 +63,13 @@ namespace CategorizeTrades.Rule
         {
             if (clientSector == "1")
             {
-                return ClientSector.PRIVATE;
+                return ClientSector.Private;
             }
             else if (clientSector == "2")
             {
-                return ClientSector.PUBLIC;
+                return ClientSector.Public;
             }
-            return ClientSector.INVALIDO;
+            return ClientSector.Invalid;
         }
     }
 }

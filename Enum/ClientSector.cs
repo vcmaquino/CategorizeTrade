@@ -2,8 +2,8 @@
 {
     public enum ClientSector
     {
-        PRIVATE,
-        PUBLIC,
-        INVALIDO
+        Private,
+        Public,
+        Invalid
     }
 }

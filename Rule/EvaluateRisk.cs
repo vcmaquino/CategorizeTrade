@@ -5,22 +5,20 @@ using System.Collections.Generic;
 
 namespace CategorizeTrades.Rule
 {
-    public class EvaluateRisk
+    public static class EvaluateRisk
     {
-        public List<EnumCategories> EvaluateRiskClient(List<Trade> tradeList, ConfiguracaoDto configuration)
+        public static IEnumerable<EnumCategories> EvaluateRiskClient(List<Trade> tradeList, ConfiguracaoDto configuration)
         {
-            var categories = new List<EnumCategories>();
-            Categories expired = new Expired();
-            Categories highRisk = new HighRisk();
-            Categories mediumRisk = new MediumRisk();
+            CategoryRule expired = new Expired();
+            CategoryRule highRisk = new HighRisk();
+            CategoryRule mediumRisk = new MediumRisk();
             expired.SetSuccessor(highRisk);
             highRisk.SetSuccessor(mediumRisk);
 
             foreach (var item in tradeList)
             {
-                categories.Add(expired.Categorize(item, configuration));
+                yield return expired.Categorize(item, configuration);
             }
-            return categories;
         }
     }
 }

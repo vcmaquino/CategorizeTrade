@@ -4,15 +4,14 @@ using CategorizeTrades.Rule;
 
 namespace CategorizeTrades.Risks
 {
-    public class HighRisk : Categories
+    public class HighRisk : CategoryRule 
     {
-        public override EnumCategories Categorize(Trade trade , ConfiguracaoDto configuracao)
+        public override EnumCategories Categorize(Trade trade , ConfiguracaoDto configiration)
         {
             double valorClientPrivate = 1000000;
-            if (ClientSector.PRIVATE == trade.ClientSector && valorClientPrivate < trade.Value)
-                return EnumCategories.HIGHRISK;
-            else
-                return successor.Categorize(trade, configuracao);
+            return ClientSector.Private == trade.ClientSector && valorClientPrivate < trade.Value
+                ? EnumCategories.HighRisk
+                : Successor.Categorize(trade, configiration);
         }
     }
 }

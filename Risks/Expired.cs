@@ -5,16 +5,14 @@ using CategorizeTrades.Rule;
 namespace CategorizeTrades.Risks
 
 {
-    public class Expired : Categories
+    public class Expired : CategoryRule 
     {
 
-        public override EnumCategories Categorize(Trade trade, ConfiguracaoDto configuracao)
+        public override EnumCategories Categorize(Trade trade, ConfiguracaoDto configuration)
         {
-            var expirationDate = configuracao.ReferenceDate.AddDays(-30);
-            if (expirationDate > trade.NextPaymentDate)
-                return EnumCategories.EXPIRED;
-            else
-                return successor.Categorize(trade, configuracao);
+            var expirationDate = configuration.ReferenceDate.AddDays(-30);
+            return expirationDate > trade.NextPaymentDate ? EnumCategories.Expired
+             : Successor.Categorize(trade, configuration);
         }
     }
 }

@@ -2,9 +2,10 @@
 {
     public enum EnumCategories
     {
-        EXPIRED,
-        HIGHRISK,
-        MEDIUMRISK,
-        WITHOUTRISK
+        Expired,
+        HighRisk,
+        MedimRisk,
+        WithOutRisk
+
     }
 }

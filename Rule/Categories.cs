@@ -1,15 +1,16 @@
 ﻿using CategorizeTrades.DTO;
 using CategorizeTrades.Enum;
+using CategorizeTrades.Interface;
 
 namespace CategorizeTrades.Rule
 {
-    public abstract class Categories
+    public abstract class CategoryRule : IClassifiable
     {
-        protected Categories successor;
-        public void SetSuccessor(Categories _successor)
+        protected CategoryRule Successor;
+        public void SetSuccessor(CategoryRule _successor)
         {
-            successor = _successor;
+            Successor = _successor;
         }
-        public abstract EnumCategories Categorize(Trade trade, ConfiguracaoDto configuracao);
+        public abstract EnumCategories Categorize(Trade trade, ConfiguracaoDto configuration);
     }
 }

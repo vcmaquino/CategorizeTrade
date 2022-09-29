@@ -4,14 +4,14 @@ using CategorizeTrades.Rule;
 
 namespace CategorizeTrades.Risks
 {
-    public class MediumRisk : Categories
+    public class MediumRisk : CategoryRule 
     {
-        public override EnumCategories Categorize(Trade trade, ConfiguracaoDto configuracao)
+        public override EnumCategories Categorize(Trade trade, ConfiguracaoDto configuration)
         {
             double valorClientPublico = 1000000;
-            if (ClientSector.PUBLIC == trade.ClientSector && valorClientPublico < trade.Value)
-                return EnumCategories.MEDIUMRISK;
-            return EnumCategories.WITHOUTRISK;
+            return (ClientSector.Public == trade.ClientSector && valorClientPublico < trade.Value)
+                ? EnumCategories.MedimRisk
+                : EnumCategories.WithOutRisk;
         }
     }
 }
