@@ -13,7 +13,7 @@ namespace CategorizeTrades.Rule
             int number = 0;
             while (number <= 0)
             {
-                Console.WriteLine("Enter the portfolio number");
+                Console.WriteLine("Enter the number of portfolios");
                 var numberOfPortifolio = Console.ReadLine();
                 number = Convert.ToInt32(numberOfPortifolio);
                 if (number <= 0)
