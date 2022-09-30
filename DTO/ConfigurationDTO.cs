@@ -2,9 +2,9 @@
 
 namespace CategorizeTrades.DTO
 {
-    public class ConfiguracaoDto
+    public class ConfigurationDTO
     {
         public DateTime ReferenceDate { get; set; }
-        public int NumberOfPortifolio { get; set; }
+        public int NumberOfPortfolio { get; set; }
     }
 }

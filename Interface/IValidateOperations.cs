@@ -7,7 +7,7 @@ namespace CategorizeTrades.Interface
     {
         int ValidateNumberOfPortfolio();
         DateTime ValidateReferenceDate();
-        double ValidateValor(string valor);
+        double ValidateValue(string value);
         ClientSector CompleteClientSector();
         ClientSector ValidateClientSector(string clientSector);
     }

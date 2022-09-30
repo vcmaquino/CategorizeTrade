@@ -13,28 +13,28 @@ namespace CategorizeTrades.Rule
             _validateOperations = validateOperations;
         }
 
-        public ConfiguracaoDto CreateConfiguration()
+        public ConfigurationDTO CreateConfiguration()
         {
             Console.WriteLine("Creating the portfolio, follow with the data of how many portfolios and the reference date");
-            var configuracao = new ConfiguracaoDto();
-            configuracao.ReferenceDate = _validateOperations.ValidateReferenceDate();
-            configuracao.NumberOfPortifolio = _validateOperations.ValidateNumberOfPortfolio();
-            return configuracao;
+            var configuration = new ConfigurationDTO();
+            configuration.ReferenceDate = _validateOperations.ValidateReferenceDate();
+            configuration.NumberOfPortfolio = _validateOperations.ValidateNumberOfPortfolio();
+            return configuration;
         }
 
-        public List<Trade> CreateObjectNegotiation(ConfiguracaoDto configuracao)
+        public List<Trade> CreateObjectNegotiation(ConfigurationDTO configuration)
         {
             var tradeList = new List<Trade>();
 
             Console.WriteLine("========================");
-            for (int i = 0; i < configuracao.NumberOfPortifolio; i++)
+            for (int number = 0; number < configuration.NumberOfPortfolio; number++)
             {
                 var trade = new Trade();
                 Console.WriteLine("Enter the value");
-                var valor = Console.ReadLine();
+                var value = Console.ReadLine();
                 trade.ClientSector = _validateOperations.CompleteClientSector();
                 trade.NextPaymentDate = _validateOperations.ValidateReferenceDate();
-                trade.Value = _validateOperations.ValidateValor(valor);
+                trade.Value = _validateOperations.ValidateValue(value);
                 tradeList.Add(trade);
                 Console.WriteLine("========================");
             }

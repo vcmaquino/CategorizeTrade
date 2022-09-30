@@ -14,8 +14,8 @@ namespace CategorizeTrades.Rule
             while (number <= 0)
             {
                 Console.WriteLine("Enter the number of portfolios");
-                var numberOfPortifolio = Console.ReadLine();
-                number = Convert.ToInt32(numberOfPortifolio);
+                var numberOfPortfolio = Console.ReadLine();
+                number = Convert.ToInt32(numberOfPortfolio);
                 if (number <= 0)
                 {
                     Console.WriteLine("Invalid number");
@@ -41,10 +41,10 @@ namespace CategorizeTrades.Rule
             return date.Value;
         }
 
-        public double ValidateValor(string valor)
+        public double ValidateValue(string value)
         {
-            var validateValor = double.Parse(valor);
-            return validateValor;
+            var validateValue = double.Parse(value);
+            return validateValue;
         }
 
         public ClientSector CompleteClientSector()

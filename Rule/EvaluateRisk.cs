@@ -7,7 +7,7 @@ namespace CategorizeTrades.Rule
 {
     public static class EvaluateRisk
     {
-        public static IEnumerable<EnumCategories> EvaluateRiskClient(List<Trade> tradeList, ConfiguracaoDto configuration)
+        public static IEnumerable<EnumCategories> EvaluateRiskClient(List<Trade> tradeList, ConfigurationDTO configuration)
         {
             CategoryRule expired = new Expired();
             CategoryRule highRisk = new HighRisk();
