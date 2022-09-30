@@ -6,10 +6,10 @@ namespace CategorizeTrades.Risks
 {
     public class HighRisk : CategoryRule 
     {
-        public override EnumCategories Categorize(Trade trade , ConfiguracaoDto configiration)
+        public override EnumCategories Categorize(Trade trade , ConfigurationDTO configiration)
         {
-            double valorClientPrivate = 1000000;
-            return ClientSector.Private == trade.ClientSector && valorClientPrivate < trade.Value
+            double valueClientPrivate = 1000000;
+            return ClientSector.Private == trade.ClientSector && valueClientPrivate < trade.Value
                 ? EnumCategories.HighRisk
                 : Successor.Categorize(trade, configiration);
         }

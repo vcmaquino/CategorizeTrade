@@ -11,6 +11,6 @@ namespace CategorizeTrades.Rule
         {
             Successor = _successor;
         }
-        public abstract EnumCategories Categorize(Trade trade, ConfiguracaoDto configuration);
+        public abstract EnumCategories Categorize(Trade trade, ConfigurationDTO configuration);
     }
 }

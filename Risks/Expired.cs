@@ -8,7 +8,7 @@ namespace CategorizeTrades.Risks
     public class Expired : CategoryRule 
     {
 
-        public override EnumCategories Categorize(Trade trade, ConfiguracaoDto configuration)
+        public override EnumCategories Categorize(Trade trade, ConfigurationDTO configuration)
         {
             var expirationDate = configuration.ReferenceDate.AddDays(-30);
             return expirationDate > trade.NextPaymentDate ? EnumCategories.Expired

@@ -7,6 +7,6 @@ namespace CategorizeTrades.Interface
     public interface IClassifiable
     {
         void SetSuccessor(CategoryRule successor);
-        EnumCategories Categorize(Trade trade, ConfiguracaoDto configuration);
+        EnumCategories Categorize(Trade trade, ConfigurationDTO configuration);
     }
 }
